@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: myapp-deployment
+  labels:
+    app: myapp
+spec:
+  replicas: 3
+  selector:
+     matchLabels:
+       app: myapp
+  template:
+    metadata:
+      labels:
+        app: myapp
+    spec:
+      containers:
+        - name: myapp
+          image: gcr.io/central-academy-298905/myapp@sha256:6f5b3d29e3db5b77ab761ebdf820fc0017d14cb90610bb25942421bb845014d1
+          ports:
+            - containerPort: 8888
+    
